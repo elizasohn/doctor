@@ -22,17 +22,23 @@ $(document).ready(function(){
     function getElements(response) {
       let name = `${response.data[0].practices[0].name}`;
       let street = `${response.data[0].practices[0].visit_address.street}`;
-      let street2 = `${response.data[0].practices[0].visit_address.street2}`;
+      let street2 = `, ${response.data[0].practices[0].visit_address.street2}`;
+      if (street2 = "undefined"){
+        street2 = "";
+      };
       let city = `${response.data[0].practices[0].visit_address.city}`;
       let state = `${response.data[0].practices[0].visit_address.state}`;
       let zip =  `${response.data[0].practices[0].visit_address.zip}`;
       let number = `${response.data[0].practices[0].phones[0].number}`;
       let website = `${response.data[0].practices[0].website}`;
+      if (website = "undefined"){
+        website = "none given";
+      };
       let patients = `${response.data[0].practices[0].accepts_new_patients}`;
 
       $(".output").html(`<ul>The doctors who can save your life are:<ul><li>` +
         name + `</li>
-      <li>`+ street + `, ` + street2 + `</li>
+      <li>`+ street + street2 + `</li>
       <li>` + city + `, ` + state + ` ` + zip + `</li>
       <li>phone number: ` + number + `</li>
       <li>website: ` + website + `</li>
