@@ -20,18 +20,15 @@ $(document).ready(function(){
     })();
 
     function getElements(response) {
-      $(".output").html(`The doctors who can save your life are: ${response.data[0].practices[0].name}`);
-      $(".output2").html(`accepts new patients: ${response.data[0].practices[0].accepts_new_patients}`);
-      $(".output3").html(`address:
-        ${response.data[0].practices[0].visit_address.street}  ${response.data[0].practices[0].visit_address.street2}<p>
-
-        ${response.data[0].practices[0].visit_address.city},
-
-        ${response.data[0].practices[0].visit_address.state}
-
-        ${response.data[0].practices[0].visit_address.zip}<p>
-        phone number: ${response.data[0].practices[0].phones[0].number}<p>
-        website: ${response.data[0].practices[0].website}`);
+      $(".output").html(`<ul>The doctors who can save your life are:<ul><li> ${response.data[0].practices[0].name}</li>
+      <li>${response.data[0].practices[0].visit_address.street}
+          ${response.data[0].practices[0].visit_address.street2}</li>
+      <li>${response.data[0].practices[0].visit_address.city},
+          ${response.data[0].practices[0].visit_address.state}
+          ${response.data[0].practices[0].visit_address.zip}</li>
+      <li>phone number: ${response.data[0].practices[0].phones[0].number}</li>
+      <li>website: ${response.data[0].practices[0].website}</li>
+      <li>accepts new patients: ${response.data[0].practices[0].accepts_new_patients}</li>`);
     }
   });
 });
