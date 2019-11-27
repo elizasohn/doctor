@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 export class Listing {
-  constructor(name, street, street2, city, state, zip, number, website, patients) {
+  constructor(name, street, street2, city, state, zip, number, website, patients){
     this.name = name;
     this.street = street;
     this.street2 = street2;
@@ -14,7 +14,7 @@ export class Listing {
   }
 }
 
-export function getListings(response) {
+export function getListings(response){
   let listings = [];
   response.data.forEach(function(doctor){
     listings.push(new Listing(
