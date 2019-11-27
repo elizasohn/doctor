@@ -9,5 +9,5 @@ export class Listing {
     this.number = number;
     this.website = website;
     this.patients = patients;
-  };
-};
+  }
+}
