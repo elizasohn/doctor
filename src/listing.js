@@ -31,12 +31,18 @@ export function getListings(response){
     );
 
   });
-   for (let i = 0; i < 5; i++){
-    $(".output1").append(`<ul><ul><li>` +
-    listings[i].name + `</li><li>`+ listings[i].street + ` ` + listings[i].street2 + `</li>
-    <li>` + listings[i].city + `, ` + listings[i].state + ` ` + listings[i].zip + `</li>
-    <li>phone number: ` + listings[i].number + `</li>
-    <li>website: ` + listings[i].website + `</li>
-    <li>accepts new patients: ` + listings[i].patients + `</li></ul>`);
+  if (listings.length <= 0){
+    $(".output1").append("There are no listings available for your query.");
+  } else {
+    for (let i = 0; i < 5; i++){
+      $(".output1").append(`<ul><ul>
+        <li>` + listings[i].name + `</li>
+        <li>`+ listings[i].street + ` ` + listings[i].street2 + `</li>
+        <li>` + listings[i].city + `, ` + listings[i].state + ` ` + listings[i].zip + `</li>
+        <li>phone number: ` + listings[i].number + `</li>
+        <li>website: ` + listings[i].website + `</li>
+        <li>accepts new patients: ` + listings[i].patients + `</li>
+        </ul>`);
+      }
+    }
   }
-}
